@@ -38,5 +38,5 @@
 ZIP_EXTERN const char *
 zip_libzip_version(void)
 {
-	return "1.3.2"; // LIBZIP_VERSION;
+	return LIBZIP_VERSION;
 }

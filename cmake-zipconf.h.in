@@ -7,6 +7,11 @@
    This file was generated automatically by CMake
    based on ../cmake-zipconf.h.in.
  */
+ 
+#define LIBZIP_VERSION "${PACKAGE_VERSION}"
+#define LIBZIP_VERSION_MAJOR ${PACKAGE_VERSION_MAJOR}
+#define LIBZIP_VERSION_MINOR ${PACKAGE_VERSION_MINOR}
+#define LIBZIP_VERSION_PATCH ${PACKAGE_VERSION_PATCH}
 
 #cmakedefine HAVE_INTTYPES_H_LIBZIP
 #cmakedefine HAVE_STDINT_H_LIBZIP

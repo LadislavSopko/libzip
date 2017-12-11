@@ -141,6 +141,7 @@ ENDif(CMAKE_SYSTEM_NAME MATCHES BSD)
 CONFIGURE_FILE(libzip.pc.in libzip.pc @ONLY)
 INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/libzip.pc DESTINATION lib/pkgconfig)
 
+
 # write out config file
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/cmake-config.h.in
   ${CMAKE_CURRENT_BINARY_DIR}/config.h)
