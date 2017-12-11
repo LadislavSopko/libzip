@@ -1,4 +1,4 @@
-.TH "ZIP_FOPEN" "3" "October 23, 2013" "NiH" "Library Functions Manual"
+.TH "ZIP_FOPEN" "3" "September 12, 2016" "NiH" "Library Functions Manual"
 .nh
 .if n .ad l
 .SH "NAME"
@@ -10,13 +10,17 @@ libzip (-lzip)
 .SH "SYNOPSIS"
 \fB#include <zip.h>\fR
 .sp
-\fIstruct\ zip_file\ *\fR
-.br
-\fBzip_fopen\fR(\fIstruct zip *archive\fR,\ \fIconst char *fname\fR,\ \fIzip_flags_t flags\fR);
-.sp
-\fIstruct\ zip_file\ *\fR
-.br
-\fBzip_fopen_index\fR(\fIstruct zip *archive\fR,\ \fIzip_uint64_t index\fR,\ \fIzip_flags_t flags\fR);
+\fIzip_file_t *\fR
+.PD 0
+.HP 4n
+\fBzip_fopen\fR(\fIzip_t\ *archive\fR, \fIconst\ char\ *fname\fR, \fIzip_flags_t\ flags\fR);
+.PD
+.PP
+\fIzip_file_t *\fR
+.PD 0
+.HP 4n
+\fBzip_fopen_index\fR(\fIzip_t\ *archive\fR, \fIzip_uint64_t\ index\fR, \fIzip_flags_t\ flags\fR);
+.PD
 .SH "DESCRIPTION"
 The
 \fBzip_fopen\fR()
@@ -113,6 +117,7 @@ is invalid.
 libzip(3),
 zip_fclose(3),
 zip_fread(3),
+zip_fseek(3),
 zip_get_num_entries(3),
 zip_name_locate(3),
 zip_set_default_password(3)

@@ -1,22 +1,24 @@
-.TH "ZIP_GET_NUM_FILES" "3" "February 14, 2011" "NiH" "Library Functions Manual"
+.TH "ZIP_GET_NUM_FILES" "3" "November 13, 2017" "NiH" "Library Functions Manual"
 .nh
 .if n .ad l
 .SH "NAME"
 \fBzip_get_num_files\fR
-\- get number of files in archive
+\- get number of files in archive (obsolete interface)
 .SH "LIBRARY"
 libzip (-lzip)
 .SH "SYNOPSIS"
 \fB#include <zip.h>\fR
 .sp
 \fIint\fR
-.br
-\fBzip_get_num_files\fR(\fIstruct zip *archive\fR);
+.PD 0
+.HP 4n
+\fBzip_get_num_files\fR(\fIzip_t\ *archive\fR);
+.PD
 .SH "DESCRIPTION"
-\fIThis function is deprecated.\fR
+\fIThis function is deprecated\fR.
 \fIUse\fR
 zip_get_num_entries(3)
-\fIinstead.\fR
+\fIinstead\fR.
 .PP
 The
 \fBzip_get_num_files\fR()

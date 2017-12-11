@@ -9,9 +9,11 @@ libzip (-lzip)
 .SH "SYNOPSIS"
 \fB#include <zip.h>\fR
 .sp
-\fIconst\ char\ *\fR
-.br
-\fBzip_file_get_comment\fR(\fIstruct zip *archive\fR,\ \fIzip_uint64_t index\fR,\ \fIzip_uint32_t *lenp\fR,\ \fIzip_flags_t flags\fR);
+\fIconst char *\fR
+.PD 0
+.HP 4n
+\fBzip_file_get_comment\fR(\fIzip_t\ *archive\fR, \fIzip_uint64_t\ index\fR, \fIzip_uint32_t\ *lenp\fR, \fIzip_flags_t\ flags\fR);
+.PD
 .SH "DESCRIPTION"
 The
 \fBzip_file_get_comment\fR()
@@ -57,7 +59,7 @@ comments, expecting them to be encoded in CP-437 in the ZIP archive
 (except if it is a UTF-8 comment from the special extra field).
 Convert it to UTF-8.
 .RE
-\fINote:\fR
+\fINote\fR:
 ASCII is a subset of both CP-437 and UTF-8.
 .SH "RETURN VALUES"
 Upon successful completion, a pointer to the comment is returned,

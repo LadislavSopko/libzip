@@ -1,22 +1,26 @@
-.TH "ZIP_ADD" "3" "October 6, 2012" "NiH" "Library Functions Manual"
+.TH "ZIP_ADD" "3" "November 13, 2017" "NiH" "Library Functions Manual"
 .nh
 .if n .ad l
 .SH "NAME"
 \fBzip_add\fR,
 \fBzip_replace\fR
-\- add file to zip archive or replace file in zip archive
+\- add file to zip archive or replace file in zip archive (obsolete interface)
 .SH "LIBRARY"
 libzip (-lzip)
 .SH "SYNOPSIS"
 \fB#include <zip.h>\fR
 .sp
 \fIzip_int64_t\fR
-.br
-\fBzip_add\fR(\fIstruct zip *archive\fR,\ \fIconst char *name\fR,\ \fIstruct zip_source *source\fR);
-.sp
+.PD 0
+.HP 4n
+\fBzip_add\fR(\fIzip_t\ *archive\fR, \fIconst\ char\ *name\fR, \fIzip_source_t\ *source\fR);
+.PD
+.PP
 \fIint\fR
-.br
-\fBzip_replace\fR(\fIstruct zip *archive\fR,\ \fIzip_uint64_t index\fR,\ \fIstruct zip_source *source\fR);
+.PD 0
+.HP 4n
+\fBzip_replace\fR(\fIzip_t\ *archive\fR, \fIzip_uint64_t\ index\fR, \fIzip_source_t\ *source\fR);
+.PD
 .SH "DESCRIPTION"
 The function
 \fBzip_add\fR()

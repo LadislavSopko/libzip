@@ -1,4 +1,4 @@
-.TH "ZIP_CLOSE" "3" "February 13, 2012" "NiH" "Library Functions Manual"
+.TH "ZIP_CLOSE" "3" "November 13, 2017" "NiH" "Library Functions Manual"
 .nh
 .if n .ad l
 .SH "NAME"
@@ -10,27 +10,30 @@ libzip (-lzip)
 \fB#include <zip.h>\fR
 .sp
 \fIint\fR
-.br
-\fBzip_close\fR(\fIstruct zip *archive\fR);
+.PD 0
+.HP 4n
+\fBzip_close\fR(\fIzip_t\ *archive\fR);
+.PD
 .SH "DESCRIPTION"
 The
 \fBzip_close\fR()
-function closes
+function writes any changes made to
 \fIarchive\fR
-and frees the memory allocated for it.
-If any files within were changed, those changes are written to disk
-first.
-If writing changes fails,
-\fBzip_close\fR()
-fails and
-\fIarchive\fR
-is left unchanged.
+to disk.
 If
 \fIarchive\fR
 contains no files, the file is completely removed (no empty archive is
 written).
+If successful,
+\fIarchive\fR
+is freed.
+If writing fails,
+\fBzip_close\fR()
+fails;
+\fIarchive\fR
+is left unchanged and must still be freed.
 .PP
-To close a zip file without saving changes, use
+To close and free a zip archive without saving changes, use
 zip_discard(3).
 .SH "RETURN VALUES"
 Upon successful completion 0 is returned.
@@ -89,6 +92,7 @@ zip_discard(3),
 zip_error_get(3),
 zip_fdopen(3),
 zip_open(3),
+zip_register_progress_callback_with_state(3),
 zip_strerror(3)
 .SH "AUTHORS"
 Dieter Baron <\fIdillo@nih.at\fR>

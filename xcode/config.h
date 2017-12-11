@@ -14,6 +14,9 @@
 /* Define to 1 if you have the `ftello' function. */
 #define HAVE_FTELLO 1
 
+/* Define to 1 if you have the <fts.h> header file. */
+#define HAVE_FTS_H 1
+
 /* Define to 1 if you have the `getopt' function. */
 #define HAVE_GETOPT 1
 
@@ -41,9 +44,6 @@
 /* Define to 1 if you have the `mkstemp' function. */
 #define HAVE_MKSTEMP 1
 
-/* Define to 1 if you have the `MoveFileExA' function. */
-/* #undef HAVE_MOVEFILEEXA */
-
 /* Define to 1 if you have the `open' function. */
 #define HAVE_OPEN 1
 
@@ -52,6 +52,9 @@
 
 /* Define to 1 if the system has the type `ssize_t'. */
 #define HAVE_SSIZE_T 1
+
+/* Define to 1 if you have the <stdbool.h> header file. */
+#define HAVE_STDBOOL_H 1
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -135,9 +138,6 @@
    */
 #define LT_OBJDIR ".libs/"
 
-/* Define to 1 if your C compiler doesn't accept -c and -o together. */
-/* #undef NO_MINUS_C_MINUS_O */
-
 /* Name of package */
 #define PACKAGE "libzip"
 
@@ -148,7 +148,7 @@
 #define PACKAGE_NAME "libzip"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "libzip 0.11.1a"
+#define PACKAGE_STRING "libzip 1.0.1a"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "libzip"
@@ -157,7 +157,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.11.1a"
+#define PACKAGE_VERSION "1.3.1a"
 
 /* The size of `int', as computed by sizeof. */
 #define SIZEOF_INT 4
@@ -192,7 +192,7 @@
 /* #undef TM_IN_SYS_TIME */
 
 /* Version number of package */
-#define VERSION "0.11.1a"
+#define VERSION "1.3.1a"
 
 /* Enable large inode numbers on Mac OS X 10.5.  */
 #ifndef _DARWIN_USE_64_BIT_INODE

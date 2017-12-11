@@ -1,17 +1,19 @@
-.TH "ZIP_ADD_DIR" "3" "June 23, 2012" "NiH" "Library Functions Manual"
+.TH "ZIP_ADD_DIR" "3" "November 13, 2017" "NiH" "Library Functions Manual"
 .nh
 .if n .ad l
 .SH "NAME"
 \fBzip_add_dir\fR
-\- add directory to zip archive
+\- add directory to zip archive (obsolete interface)
 .SH "LIBRARY"
 libzip (-lzip)
 .SH "SYNOPSIS"
 \fB#include <zip.h>\fR
 .sp
 \fIzip_int64_t\fR
-.br
-\fBzip_add_dir\fR(\fIstruct zip *archive\fR,\ \fIconst char *name\fR);
+.PD 0
+.HP 4n
+\fBzip_add_dir\fR(\fIzip_t\ *archive\fR, \fIconst\ char\ *name\fR);
+.PD
 .SH "DESCRIPTION"
 The function
 \fBzip_add_dir\fR()

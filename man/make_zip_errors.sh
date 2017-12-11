@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #  make_zip_errrors.sh: create zip_errors.mdoc from zip.h
-#  Copyright (C) 1999, 2003, 2004, 2005 Dieter Baron and Thomas Klausner
+#  Copyright (C) 1999-2013 Dieter Baron and Thomas Klausner
 #
 #  This file is part of libzip, a library to manipulate ZIP archives.
 #  The authors can be contacted at <libzip@nih.at>
@@ -35,7 +35,7 @@
 if [ "$#" -ne 2 ]
 then
     echo "Usage: $0 in_file out_file" >&2
-    echo "       e.g. $0 zip.h zip_err_str.c" >&2
+    echo "       e.g. $0 zip.h zip_errors.mdoc" >&2
     exit 1
 fi
 
@@ -45,11 +45,11 @@ then
     exit 1
 fi
 
-date=`date '+%B %e, %Y' | sed 's/  / /'`
+date=`LC_TIME=en_US date '+%B %e, %Y' | sed 's/  / /'`
 
 cat <<EOF >> "$2.$$" || exit 1
 .\" zip_errors.mdoc -- list of all libzip error codes
-.\" Copyright (C) 2004, 2005 Dieter Baron and Thomas Klausner
+.\" Copyright (C) 1999-2013 Dieter Baron and Thomas Klausner
 .\"
 .\" This file is part of libzip, a library to manipulate ZIP archives.
 .\" The authors can be contacted at <libzip@nih.at>
@@ -98,6 +98,7 @@ The following error codes are used by libzip:
 EOF
 
 sed -n  's/^#define \(ZIP_ER_[A-Z_0-9]*\).*\/\* \(.\) \([^*]*\) \*\//.It Bq Er \1@\3./p' "$1" \
+    | sort\
     | tr @ '\012' \
     >> "$2.$$" || exit 1
 
@@ -105,7 +106,7 @@ cat <<EOF >> "$2.$$" || exit 1
 .El
 .Sh AUTHORS
 .An -nosplit
-.An Dieter Baron Aq Mt dillo@giga.or.at
+.An Dieter Baron Aq Mt dillo@nih.at
 and
 .An Thomas Klausner Aq Mt tk@giga.or.at
 EOF

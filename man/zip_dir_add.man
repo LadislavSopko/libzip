@@ -1,4 +1,4 @@
-.TH "ZIP_DIR_ADD" "3" "June 23, 2012" "NiH" "Library Functions Manual"
+.TH "ZIP_DIR_ADD" "3" "December 4, 2014" "NiH" "Library Functions Manual"
 .nh
 .if n .ad l
 .SH "NAME"
@@ -10,8 +10,10 @@ libzip (-lzip)
 \fB#include <zip.h>\fR
 .sp
 \fIzip_int64_t\fR
-.br
-\fBzip_dir_add\fR(\fIstruct zip *archive\fR,\ \fIconst char *name\fR,\ \fIzip_flags_t flags\fR);
+.PD 0
+.HP 4n
+\fBzip_dir_add\fR(\fIzip_t\ *archive\fR, \fIconst\ char\ *name\fR, \fIzip_flags_t\ flags\fR);
+.PD
 .SH "DESCRIPTION"
 The function
 \fBzip_dir_add\fR()
@@ -71,3 +73,7 @@ zip_add(3)
 Dieter Baron <\fIdillo@nih.at\fR>
 and
 Thomas Klausner <\fItk@giga.or.at\fR>
+.SH "CAVEATS"
+\fBzip_dir_add\fR()
+does not look in the file system, it just creates one entry in the
+archive for the provided name.

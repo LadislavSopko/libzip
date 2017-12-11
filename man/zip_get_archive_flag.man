@@ -1,4 +1,4 @@
-.TH "ZIP_GET_ARCHIVE_FLAG" "3" "July 22, 2012" "NiH" "Library Functions Manual"
+.TH "ZIP_GET_ARCHIVE_FLAG" "3" "April 29, 2015" "NiH" "Library Functions Manual"
 .nh
 .if n .ad l
 .SH "NAME"
@@ -10,8 +10,10 @@ libzip (-lzip)
 \fB#include <zip.h>\fR
 .sp
 \fIint\fR
-.br
-\fBzip_get_archive_flag\fR(\fIstruct zip *archive\fR,\ \fIzip_flags_t flag\fR,\ \fIzip_flags_t flags\fR);
+.PD 0
+.HP 4n
+\fBzip_get_archive_flag\fR(\fIzip_t\ *archive\fR, \fIzip_flags_t\ flag\fR, \fIzip_flags_t\ flags\fR);
+.PD
 .SH "DESCRIPTION"
 The
 \fBzip_get_archive_flag\fR()
@@ -28,9 +30,9 @@ is set to
 the original unchanged flags are tested.
 .PP
 Supported flags are:
-.TP 21n
-\fRZIP_AFL_TORRENT\fR
-The archive is torrent-zipped.
+.TP 20n
+\fRZIP_AFL_RDONLY\fR
+The archive is read-only.
 .SH "RETURN VALUES"
 \fBzip_get_archive_flag\fR()
 returns 1 if

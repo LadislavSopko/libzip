@@ -7,10 +7,12 @@ my $DOCSETUTIL = '/Applications/Xcode.app/Contents/Developer/usr/bin/docsetutil'
 my $BASE_URL = 'http://nih.at/libzip';
 my $BUNDLE_ID = 'at.nih.libzip';
 
+my $SRCDIR = $ENV{SRCDIR} // '.';
+
 my @files = @ARGV;
 
 my $docset = 'at.nih.libzip.docset';
-my @sh_nodes = qw(zipcmp zipmerge ziptorrent);
+my @sh_nodes = qw(zipcmp zipmerge ziptool);
 
 (system('rm', '-rf', $docset) == 0) or die "can't remove old version of docset: $!";
 
@@ -44,7 +46,7 @@ print I <<EOF;
 	<key>DocSetPublisherName</key>
 	<string>NiH</string>
         <key>NSHumanReadableCopyright</key>
-        <string>Copyright © 2012 Dieter Baron and Thomas Klausner</string>
+        <string>Copyright © 2016 Dieter Baron and Thomas Klausner</string>
 	<key>CFBundleVersion</key>
 	<string>$version</string>
 	<key>DocSetFeedURL</key>
@@ -114,7 +116,7 @@ print N "</DocSetNodes>\n";
 
 close N;
 
-link('nih-man.css', "$docset/Contents/Resources/Documents/nih-man.css") or die "can't link css file: $!";
+link("$SRCDIR/nih-man.css", "$docset/Contents/Resources/Documents/nih-man.css") or die "can't link css file: $!";
 copy_html('libzip.html', "$docset/Contents/Resources/Documents/libzip.html");
 
 write_tokens();
@@ -127,8 +129,6 @@ unlink("$docset/Contents/Resources/Tokens.xml");
 
 system($DOCSETUTIL, 'package', '-output', "at.nih.libzip-$version.xar", '-atom', "at.nih.libzip$suffix.atom", '-download-url', "$BASE_URL/at.nih.libzip-$version.xar", $docset);
 
-
-
 
 sub copy_html {
     my ($src, $dst) = @_;
@@ -153,7 +153,7 @@ sub process_file {
 
     my $name = $html;
     $name =~ s/.html//;
-    my $mdoc = "$name.mdoc";
+    my $mdoc = "$SRCDIR/$name.mdoc";
 
     my $description;
     my @names = ();

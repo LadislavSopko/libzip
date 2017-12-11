@@ -1,5 +1,4 @@
 # remove archive comment
-program set_comment_removeglobal
 return 0
-args testcomment.zip
+args testcomment.zip  set_archive_comment ""
 file testcomment.zip testcomment.zip testcommentremoved.zip
